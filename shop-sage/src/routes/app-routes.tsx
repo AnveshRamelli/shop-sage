@@ -4,10 +4,10 @@ import ProductDetails from "../pages/product-details";
 import Cart from "../pages/cart";
 import Wishlist from "../pages/wishlist";
 
-const routes: any = [
+const routes: any = (search: string) => [
   {
     path: "/",
-    element: <ProductList />,
+    element: <ProductList search={search}/>,
   },
   {
     path: "/product/:id",

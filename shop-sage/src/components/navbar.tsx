@@ -1,14 +1,11 @@
 import { Link } from "react-router-dom";
+import Search from "./search";
 
-const Navbar = () => {
+const Navbar = ({setSearch}:any) => {
   return (
     <nav className="flex justify-between items-center px-12 py-3 shadow-md ">
       <h1 className="text-2xl font-bold ">ShopSage</h1>
-      <input
-        type="text"
-        placeholder="Search..."
-        className="border border-gray-300 rounded-lg p-1 w-1/2"
-      />
+      <Search setSearch={setSearch}/>
       <ul className="flex gap-2">
         <Link to="/">
           <li>Home</li>
