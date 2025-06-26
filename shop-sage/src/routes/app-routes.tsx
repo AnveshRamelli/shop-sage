@@ -4,10 +4,10 @@ import ProductDetails from "../pages/product-details";
 import Cart from "../pages/cart";
 import Wishlist from "../pages/wishlist";
 
-const routes: any = (search: string) => [
+const routes: any = (search: string, cart:any, setCart:any) => [
   {
     path: "/",
-    element: <ProductList search={search}/>,
+    element: <ProductList search={search} setCart={setCart}/>,
   },
   {
     path: "/product/:id",
@@ -15,7 +15,7 @@ const routes: any = (search: string) => [
   },
   {
     path: "/cart",
-    element: <Cart />,
+    element: <Cart cart={cart} setCart={setCart}/>,
   },
   {
     path: "/wishlist",

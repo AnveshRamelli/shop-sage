@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const ProductCard = ({ product }: any) => {
+const ProductCard = ({ product, setCart }: any) => {
   return (
     <div className="border border-gray-200 bg-gray-100 rounded-xl p-4 shadow-sm hover:shadow-md transition">
       <Link to={`/product/${product.id}`}>
@@ -22,7 +22,10 @@ const ProductCard = ({ product }: any) => {
       <p className="mt-2 font-medium text-base text-gray-800">
         ₹{product.price}
       </p>
-      <button className="mt-2 bg-primary text-white px-4 py-1.5 w-full rounded text-sm hover:opacity-90 transition">
+      <button
+        className="mt-2 bg-primary text-white px-4 py-1.5 w-full rounded text-sm hover:opacity-90 transition"
+        onClick={() => setCart((prev: any) => [...prev, product])}
+      >
         Add to Cart
       </button>
     </div>
