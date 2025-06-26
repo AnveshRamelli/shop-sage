@@ -19,7 +19,7 @@ const Sidebar = ({selectedCategory, setSelectedCategory}:any) => {
     <aside className="p-4 md:col-span-1 bg-gray-100">
       <h2 className="font-semibold text-lg">Categories</h2>
       <ul className="mt-2">
-        <li className="px-4 py-2 cursor-pointer hover:bg-gray-200 transition" onClick={() => setSelectedCategory(null)}>All Products</li>
+        <li className={`px-4 py-2 cursor-pointer ${selectedCategory === null ? "bg-gray-200" : ""} hover:bg-gray-200 transition`} onClick={() => setSelectedCategory(null)}>All Products</li>
         {categories.length && categories.map((category: any) => (
           <li
             key={category.slug}
