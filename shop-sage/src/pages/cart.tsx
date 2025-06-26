@@ -9,9 +9,10 @@ const Cart = ({ cart, setCart }: any) => {
       </div>
     );
   return (
-    <div className="p-1 border mx-auto max-w-2xl">
+    <div className="p-1 mx-auto max-w-2xl">
+      <h2 className="text-3xl font-bold text-blue-600 text-center mb-5">Your Cart</h2>
       {cart.map((item: any) => (
-        <div key={item.id} className="grid grid-cols-3 gap-4 items-center">
+        <div key={item.id} className="border border-gray-200 grid grid-cols-3 gap-4 items-center">
           <div>
             <img src={item.thumbnail} alt={item.title} className="w-24"></img>
           </div>
