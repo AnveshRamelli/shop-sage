@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 const Cart = ({ cart, setCart }: any) => {
+   const total = cart.reduce((acc:number, product:any) => acc + product.price, 0);
   if (cart.length === 0)
     return (
       <div className="p-4 max-w-2xl mx-auto text-center">
@@ -9,8 +10,11 @@ const Cart = ({ cart, setCart }: any) => {
       </div>
     );
   return (
-    <div className="p-1 mx-auto max-w-2xl">
-      <h2 className="text-3xl font-bold text-blue-600 text-center mb-5">Your Cart</h2>
+    <div className="p-4 mx-auto max-w-2xl">
+      <h2 className="text-3xl font-bold text-blue-600 text-center mb-6">Your Cart</h2>
+      <div className="text-right text-xl font-semibold text-gray-700">
+        Total: Rs. {total}
+      </div>
       {cart.map((item: any) => (
         <div key={item.id} className="border border-gray-200 grid grid-cols-3 gap-4 items-center">
           <div>
