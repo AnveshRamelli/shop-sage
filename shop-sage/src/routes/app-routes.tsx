@@ -10,7 +10,7 @@ const routes: any = [
     element: <ProductList />,
   },
   {
-    path: "/product-details",
+    path: "/product/:id",
     element: <ProductDetails />,
   },
   {
