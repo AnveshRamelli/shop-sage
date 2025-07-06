@@ -2,18 +2,24 @@ import { useEffect, useState } from "react";
 import ProductCard from "../components/product-card";
 import Sidebar from "../components/sidebar";
 
-const ProductList = () => {
+const ProductList = ({ search }: any) => {
   const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [loading, setLoading] = useState(false);
+  console.log(search);
+
   const baseUrl = "https://dummyjson.com/products";
 
   const fetchProducts = async () => {
     try {
       setLoading(true);
       let url = baseUrl;
-      if (selectedCategory) {
-        url += `/category/${selectedCategory}`;
+      if (search) {
+        url += `/search?q=${search}`;
+      } else {
+        if (selectedCategory) {
+          url += `/category/${selectedCategory}`;
+        }
       }
       const res = await fetch(url);
       const data = await res.json();
@@ -27,7 +33,7 @@ const ProductList = () => {
 
   useEffect(() => {
     fetchProducts();
-  }, [selectedCategory]);
+  }, [selectedCategory, search]);
 
   return (
     <div className="grid md:grid-cols-4 gap-6">
