@@ -5,10 +5,11 @@ import { useState } from "react";
 
 const App = () => {
   const [search, setSearch] = useState<string>("");
-  const appRoutes = useRoutes(routes(search));
+  const [cart, setCart] = useState<any>([]);
+  const appRoutes = useRoutes(routes(search, cart, setCart));
   return (
     <>
-      <Navbar setSearch={setSearch} />
+      <Navbar setSearch={setSearch} cartLength={cart.length} />
       <div className="p-6">{appRoutes}</div>
     </>
   );

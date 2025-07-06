@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Search from "./search";
 
-const Navbar = ({setSearch}:any) => {
+const Navbar = ({setSearch, cartLength}:any) => {
   return (
     <nav className="flex justify-between items-center px-12 py-3 shadow-md ">
       <h1 className="text-2xl font-bold ">ShopSage</h1>
@@ -11,7 +11,7 @@ const Navbar = ({setSearch}:any) => {
           <li>Home</li>
         </Link>
         <Link to="/cart">
-          <li>Cart</li>
+          <li>Cart <span className="font-bold">{cartLength > 0 && cartLength}</span></li>
         </Link>
         <Link to="/wishlist">
           <li>Wishlist</li>
