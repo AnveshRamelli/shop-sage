@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
 
 const Cart = ({ cart, setCart }: any) => {
    const total = cart.reduce((acc:number, product:any) => acc + product.price, 0);
@@ -31,6 +32,7 @@ const Cart = ({ cart, setCart }: any) => {
                 setCart((prev: any) =>
                   prev.filter((product: any) => product.id !== item.id)
                 );
+                toast.info('Item removed from cart')
               }}
             >
               Remove
